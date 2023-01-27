@@ -38,7 +38,7 @@ namespace CleanArchMvc.Domain.Entities
             DomainExceptionValidation.When(string.IsNullOrEmpty(description), "Descrição inválida.");
             DomainExceptionValidation.When(price < 0, "Preço inválido.");
             DomainExceptionValidation.When(stock < 0, "Stock inválido.");
-            DomainExceptionValidation.When(image.Length > 250, "Nome de imagem inválido, maximo 250 caracteres.");
+            DomainExceptionValidation.When(image?.Length > 250, "Nome de imagem inválido, maximo 250 caracteres.");
             DomainExceptionValidation.When(name.Length < 3, "Nome do produto invalido, minimo 3 caracteres.");
 
             Name = name;
