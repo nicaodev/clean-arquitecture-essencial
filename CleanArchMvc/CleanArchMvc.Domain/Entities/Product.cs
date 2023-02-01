@@ -1,9 +1,4 @@
 ﻿using CleanArchMvc.Domain.Validation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchMvc.Domain.Entities
 {
@@ -19,6 +14,7 @@ namespace CleanArchMvc.Domain.Entities
         {
             ValidateDomain(name, description, price, stock, image);
         }
+
         public Product(int id, string name, string description, decimal price, int stock, string image)
         {
             DomainExceptionValidation.When(id < 0, "Id inválido.");
@@ -46,7 +42,6 @@ namespace CleanArchMvc.Domain.Entities
             Price = price;
             Stock = stock;
             Image = image;
-
         }
 
         public int CategoryId { get; set; }

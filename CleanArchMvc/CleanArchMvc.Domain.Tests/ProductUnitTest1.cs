@@ -1,12 +1,7 @@
 ﻿using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Validation;
 using FluentAssertions;
-using FluentAssertions.Equivalency;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace CleanArchMvc.Domain.Tests
@@ -40,7 +35,5 @@ namespace CleanArchMvc.Domain.Tests
             Action action = () => new Product(1, null, "Descrição", 9.99m, 99, "Imagem do Produto");
             action.Should().Throw<DomainExceptionValidation>().WithMessage("Nome inválido.");
         }
-
-
     }
 }

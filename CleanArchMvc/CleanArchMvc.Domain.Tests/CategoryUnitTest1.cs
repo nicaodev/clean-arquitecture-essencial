@@ -21,6 +21,7 @@ namespace CleanArchMvc.Domain.Tests
             Action action = () => new Category(-1, "Teste: Nova categoria");
             action.Should().Throw<DomainExceptionValidation>().WithMessage("Id inválido.");
         }
+
         [Fact]
         public void CreateCategory_ShortName_DomainExceptionShortName()
         {
