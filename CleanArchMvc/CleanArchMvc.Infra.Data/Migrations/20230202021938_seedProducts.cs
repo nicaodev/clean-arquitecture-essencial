@@ -13,7 +13,7 @@ namespace CleanArchMvc.Infra.Data.Migrations
                 "VALUES('Estojo', 'Estojo Preto', 1.45, 23, 'estojo1.png',1)");
 
             migrationBuilder.Sql("INSERT INTO Products(Name, Description, Price, Stock, Image, CategoryId)" +
-                "VALUES('Lapis', 'Lapis Azul', 2.45, 50, 'Lapiz.png',1)");
+                "VALUES('Lapis', 'Lapis Azul', 2.45, 50, 'Lapis.png',1)");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
