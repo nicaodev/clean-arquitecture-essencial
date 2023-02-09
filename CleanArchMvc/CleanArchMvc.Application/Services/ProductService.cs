@@ -35,7 +35,7 @@ namespace CleanArchMvc.Application.Services
             return _mapper.Map<IEnumerable<ProductDTO>>(result);
         }
 
-        public async Task<ProductDTO> GetById(int? id)
+        public async Task<ProductDTO> GetByIdAsync(int? id)
         {
             var productByIdQuery = new GetProductByIdQuery(id.Value);
 
