@@ -39,7 +39,7 @@ namespace CleanArchMvc.Infra.Data.Identity
             return result.Succeeded;
         }
 
-        public async Task Logout() 
+        public async Task Logout()
         {
             await _signInManager.SignOutAsync();
         }

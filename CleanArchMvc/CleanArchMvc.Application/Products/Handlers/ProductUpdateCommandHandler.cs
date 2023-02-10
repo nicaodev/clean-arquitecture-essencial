@@ -3,9 +3,6 @@ using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Interfaces;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,6 +17,7 @@ namespace CleanArchMvc.Application.Products.Handlers
             _productRepository = productRepository ??
                 throw new ArgumentNullException(nameof(productRepository));
         }
+
         public async Task<Product> Handle(ProductUpdateCommand request, CancellationToken cancellationToken)
         {
             var product = await _productRepository.GetByIdAsync(request.Id);

@@ -3,9 +3,6 @@ using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Interfaces;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -19,9 +16,9 @@ namespace CleanArchMvc.Application.Products.Handlers
         {
             _productRepository = productRepository;
         }
+
         public async Task<Product> Handle(ProductCreateCommand request, CancellationToken cancellationToken)
         {
-
             var product = new Product(request.Name, request.Description, request.Price, request.Stock, request.Image);
 
             if (product == null)
@@ -33,8 +30,6 @@ namespace CleanArchMvc.Application.Products.Handlers
                 product.CategoryId = request.CategoryId;
                 return await _productRepository.CreateAsync(product);
             }
-
-
         }
     }
 }

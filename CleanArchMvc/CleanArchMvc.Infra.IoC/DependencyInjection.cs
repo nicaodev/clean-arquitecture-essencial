@@ -35,14 +35,11 @@ namespace CleanArchMvc.Infra.IoC
             services.AddScoped<IAuthenticate, AuthenticateService>();
             services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
 
-
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
-
 
             var myHandlers = AppDomain.CurrentDomain.Load("CleanArchMvc.Application");
 
             services.AddMediatR(myHandlers);
-
 
             return services;
         }

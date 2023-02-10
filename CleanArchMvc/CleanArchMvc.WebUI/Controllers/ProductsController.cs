@@ -17,13 +17,13 @@ namespace CleanArchMvc.WebUI.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var product = await _productService.GetProducts();
             return View(product);
         }
-
 
         [HttpGet()]
         public async Task<IActionResult> Create()
@@ -70,21 +70,22 @@ namespace CleanArchMvc.WebUI.Controllers
             }
             return View(productDTO);
         }
-        [Authorize(Roles ="Admin")]
+
+        [Authorize(Roles = "Admin")]
         [HttpGet()]
-        public async Task<IActionResult> Delete (int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id is null) return NotFound();
 
             var product = await _productService.GetByIdAsync(id);
-            
+
             if (product == null) return NotFound();
 
             return View(product);
         }
 
         [HttpPost(), ActionName("Delete")]
-        public async Task<IActionResult>DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _productService.Remove(id);
             return RedirectToAction(nameof(Index));
