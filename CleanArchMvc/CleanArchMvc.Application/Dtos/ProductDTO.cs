@@ -1,6 +1,7 @@
 ﻿using CleanArchMvc.Domain.Entities;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CleanArchMvc.Application.Dtos
 {
@@ -23,7 +24,7 @@ namespace CleanArchMvc.Application.Dtos
         [MaxLength(250)]
         [DisplayName("Product Image")]
         public string Image { get; set; }
-
+        //[JsonIgnore] // Serve para ignorar a serialização em loop, caso, não use o newtonsoftJson
         public Category Category { get; set; }
         public int CategoryId { get; set; }
     }
