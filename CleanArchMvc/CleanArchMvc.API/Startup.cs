@@ -29,6 +29,9 @@ namespace CleanArchMvc.API
         {
             services.AddInfrastructureAPI(Configuration);
 
+            //Ativação e validação do token
+            services.AddInfrastructureJWT(Configuration);
+
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddSwaggerGen(c =>
