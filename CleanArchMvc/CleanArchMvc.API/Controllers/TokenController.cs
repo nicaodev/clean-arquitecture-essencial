@@ -44,7 +44,22 @@ namespace CleanArchMvc.API.Controllers
                 return BadRequest(ModelState);
             }
         }
+        [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)] // Não mostra mais o endpoint(swagger etc)
+        public async Task<ActionResult> CreateUser([FromBody] LoginModel loginModel)
+        {
+            var resulto = await _authenticate.RegisterUser(loginModel.Email, loginModel.Password);
 
+            if (resulto)
+            {
+                return Ok($"User {loginModel.Email} was created!!!");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                return BadRequest(ModelState);
+            }
+        }
         private UserToken GenerateToken(LoginModel userInfo)
         {
             //Declaracoes do user
@@ -85,5 +100,7 @@ namespace CleanArchMvc.API.Controllers
                 Expiration = exp
             };
         }
+
+
     }
 }
